@@ -1,1 +1,2 @@
-# Expense-Tracker by chetan
+# Expense-Tracker by Nishita
+
