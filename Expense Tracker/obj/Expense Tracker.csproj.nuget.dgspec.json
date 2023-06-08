@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\dotnetcore\\Expensetracker\\Expense Tracker\\Expense Tracker\\Expense Tracker.csproj": {}
+    "E:\\dotnetcore\\Git\\Expense-Tracker\\Expense Tracker\\Expense Tracker.csproj": {}
   },
   "projects": {
-    "E:\\dotnetcore\\Expensetracker\\Expense Tracker\\Expense Tracker\\Expense Tracker.csproj": {
+    "E:\\dotnetcore\\Git\\Expense-Tracker\\Expense Tracker\\Expense Tracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\dotnetcore\\Expensetracker\\Expense Tracker\\Expense Tracker\\Expense Tracker.csproj",
+        "projectUniqueName": "E:\\dotnetcore\\Git\\Expense-Tracker\\Expense Tracker\\Expense Tracker.csproj",
         "projectName": "Expense Tracker",
-        "projectPath": "E:\\dotnetcore\\Expensetracker\\Expense Tracker\\Expense Tracker\\Expense Tracker.csproj",
+        "projectPath": "E:\\dotnetcore\\Git\\Expense-Tracker\\Expense Tracker\\Expense Tracker.csproj",
         "packagesPath": "C:\\Users\\ATI-1\\.nuget\\packages\\",
-        "outputPath": "E:\\dotnetcore\\Expensetracker\\Expense Tracker\\Expense Tracker\\obj\\",
+        "outputPath": "E:\\dotnetcore\\Git\\Expense-Tracker\\Expense Tracker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

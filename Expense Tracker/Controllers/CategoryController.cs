@@ -1,15 +1,23 @@
 ﻿using Expense_Tracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Expense_Tracker.Controllers
 {
     public class CategoryController : Controller
     {
-        // GET: CategoryController
-        public ActionResult Index()
+        private readonly ApplicationDbContext _context;
+        public CategoryController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        // GET: Category
+        public async Task<IActionResult> Index()
+        {
+            return _context.Categories != null ?
+                        View(await _context.Categories.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Categories'  is null.");
         }
 
         // GET: CategoryController/Details/5
@@ -18,19 +26,32 @@ namespace Expense_Tracker.Controllers
             return View();
         }
 
-        // GET: CategoryController/Create
-        public ActionResult Create()
+        // GET: CategoryController/AddOrEdit
+        public ActionResult AddOrEdit(int id=0)
         {
-            return View(new Category());
+            if (id == 0)
+                return View(new Category());
+            else
+                return View(_context.Categories.Find(id));
         }
 
-        // POST: CategoryController/Create
+        // POST: CategoryController/AddOrEdit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> AddOrEdit(Category category)
         {
             try
             {
+                if (ModelState.IsValid)
+                {
+                    if (category.CategoryId == 0)
+                        _context.Add(category);
+                    else
+                        _context.Update(category);
+                await _context.SaveChangesAsync();
+
+
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -39,27 +60,7 @@ namespace Expense_Tracker.Controllers
             }
         }
 
-        // GET: CategoryController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: CategoryController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+        
         // GET: CategoryController/Delete/5
         public ActionResult Delete(int id)
         {
@@ -67,12 +68,20 @@ namespace Expense_Tracker.Controllers
         }
 
         // POST: CategoryController/Delete/5
-        [HttpPost]
+        [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
             {
+                if (_context.Categories == null)
+                    return Problem("Entrity set 'ApplicationDbContext.Categories' is null");
+
+                var category = await _context.Categories.FindAsync(id);
+                if (category != null)
+                    _context.Categories.Remove(category);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             catch
