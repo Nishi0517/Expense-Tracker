@@ -1,0 +1,27 @@
+
+
+code first migration
+
+add-migration 'initial'
+update-database
+
+connection string
+database ExpenseTrackerDB
+
+"ConnectionStrings": {
+    "TrackerExpCon": "server=ATI-1;database=ExpenseTrackerDB;Integrated Security=True; MultipleActiveResultSets=true; TrustServerCertificate=True;"
+
+  }
+  
+  isssues--
+  
+  no issue found , only dash board will update when u enter some transcation in today date
+  
+  Packages
+  
+  Microsoft.EntityFrameworkCore 6.0.8
+  Microsoft.EntityFrameworkCore.SqlServer 6.0.8
+  Microsoft.EntityFrameworkCore.Tools 6.0.8
+  Microsoft.VisualStudio.Web.CodeGeneration.Design 6.0.13
+  
+  
