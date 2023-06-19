@@ -1,0 +1,20 @@
+
+
+it is totally .net core 6
+
+
+use code first migration
+connection string
+
+  "TrackerExpCon": "server=ATI-1;database=ExpenseTrackerDB;Integrated Security=True; MultipleActiveResultSets=true; TrustServerCertificate=True;"
+  
+ issue:
+  dashboard will be updated for today transcation.. if you want to see entry then do some entry in expense/ credited in transcation table
+  
+  pacakges
+  
+  Microsoft.EntityFrameworkCore 6.0.8
+  Microsoft.EntityFrameworkCore.SqlServer 6.0.8
+  Microsoft.EntityFrameworkCore.Tools 6.0.8
+  Microsoft.VisualStudio.Web.CodeGeneration.Design 6.0.13
+  
